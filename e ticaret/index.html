@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğu-Kalitenin Adresi </title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="baslık">
+        <center>
+        <img class="logo" src="Dogu-Yapi-Logo.png" alt="doğu">
+    </center>
+       </div>
+    
+        <div class="alt" >
+            <div class="cell">ALT GİYİM</div>
+            <div class="cell">ÜST GİYİM</div>
+            <div class="cell">AKSESUAR</div>
+            <div class="cell">ÇOCUK</div>
+            <div class="cell">ERKEK</div>
+            <div class="cell">KADIN</div>
+            
+           
+         
+        </div>
+
+
+<br>
+<br><br>
+<center>
+        <div id="slider">
+ 
+ 
+            <div class="slayt" style="background-color:lightslategray;">
+                    <img src="arka.jpg" width="700" height="300">
+             
+             
+            <div class="aciklama">BU FIRSAT KAÇMAZ</div>
+             
+             
+            </div>
+             
+             
+             
+             
+            <div class="slayt" style="background-color:lightslategray">
+                    <img src="CEKET1.jpg" width="700" height="300">
+             
+             
+            <div class="aciklama"> 2023 KIŞ</div>
+             
+             
+            </div>
+             
+             
+             
+             
+            <div class="slayt" style="background-color:lightslategray">
+                    <img src="Originals/arka.jpg" width="700" height="300">
+             
+             
+            <div class="aciklama">BU FIRSAT KAÇMAZ</div>
+             
+             
+            </div>
+             
+             
+             
+             
+            <div class="slayt" style="background-color:lightslategray">
+                    <img src="Originals/arka.jpg" width="700" height="300">
+             
+             
+            <div class="aciklama">BU FIRSAT KAÇMAZ</div>
+             
+             
+            </div>
+             
+             
+             
+             
+            <div class="slayt" style="background-color:lightslategray">
+                    <img src="Originals/arka.jpg" width="700" height="300">
+             
+             
+            <div class="aciklama">BU FIRSAT KAÇMAZ</div>
+             
+             
+            </div>
+             
+             
+             
+             
+            <div class="slayt" style="background-color:lightslategray">
+                    <img src="Originals/arka.jpg" width="700" height="300">
+             
+             
+            <div class="aciklama">BU FIRSAT KAÇMAZ</div>
+             
+             
+            </div>
+             
+             
+                <!--Slayt numaraland覺rma-->
+             
+             
+            <div class="slaytsirasi">
+             
+             
+            <ul>
+             
+             
+                 <li onmouseover="aktif=0; slider();"></li>
+             
+             
+             
+             
+                 <li onmouseover="aktif=1; slider();"></li>
+             
+             
+             
+             
+                 <li onmouseover="aktif=2; slider();"></li>
+             
+             
+             
+             
+                 <li onmouseover="aktif=3; slider();"></li>
+             
+             
+             
+             
+                 <li onmouseover="aktif=4; slider();"></li>
+             
+             
+             
+             
+                 <li onmouseover="aktif=5; slider();"></li>
+             
+             
+            </ul>
+             
+             
+            </div>
+             
+             
+            </div>
+            
+            <div class="conteiner1">
+                <div class="card">
+                 <center> <img src="sweatshirt.jpg" alt="">
+                <p>Gri sweatshirt 399TL</p></center>  
+                    
+
+
+                </div>
+
+                <div class="card">
+                    <center> <img src="pantolon.png" alt="">
+                        <p>Kargo pantolon 599TL</p></center>  
+                            
+
+                </div>
+
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </center>
+
+
+
+
+
+
+
+
+
+            <script>
+                var aktif=0;
+	var pasif=null;
+	slider();
+	
+	var ileri=document.createElement('div');
+	ileri.style.right="0";
+	ileri.innerHTML=">";
+	ileri.className="ileri";
+	ileri.onclick=function(){slider();}
+	var geri=document.createElement("div");
+	geri.style.left="0";
+	geri.innerHTML="<";
+	geri.className="geri";
+	geri.onclick=function(){ aktif-=2; slider();}
+	var anadiv=document.getElementById("slider");
+	anadiv.appendChild(ileri);
+	anadiv.appendChild(geri);
+	
+	
+	anadiv.onmouseover=function(){clearTimeout(slayt_zaman);}
+	anadiv.onmouseout=function(){slayt_zaman=setInterval(slider,5000);}
+	
+	function slider(){
+	    
+		if(aktif>=document.getElementsByClassName("slayt").length){ 
+		aktif=0;
+		}else if(aktif<0){ 
+		aktif=document.getElementsByClassName("slayt").length-1; }
+	if(pasif!=null){
+		
+		var pasifdiv=document.getElementsByClassName("slayt")[pasif];
+		pasifdiv.style.animation="hareketsagsol2 linear 1s";
+		pasifdiv.style.right="-700px";
+		
+		}
+		
+		for(var s=0;s<document.getElementsByTagName("li").length;s++){
+		    document.getElementsByTagName("li")[s].setAttribute("class","");
+		}
+		
+		var aktifdiv=document.getElementsByClassName("slayt")[aktif];
+		aktifdiv.style.animation="hareketsagsol linear 1s";
+		aktifdiv.style.opacity="1";
+		aktifdiv.style.right="0px";
+    		document.getElementsByTagName("li")[aktif].setAttribute("class","aktifLi");
+		
+	pasif=aktif;
+	aktif++;
+	}
+		var slayt_zaman=setInterval(slider,5000);
+            </script>
+
+
+</body>
+</html>
